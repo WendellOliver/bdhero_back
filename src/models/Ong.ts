@@ -1,4 +1,4 @@
-import { Column, Entity, CreateDateColumn,PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, CreateDateColumn,PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
 @Entity('ongs')
@@ -24,7 +24,7 @@ class Ong{
     @CreateDateColumn()
         created_at: Date;
 
-    @CreateDateColumn()
+    @UpdateDateColumn()
         updated_at: Date;
 
     

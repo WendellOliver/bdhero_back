@@ -9,15 +9,13 @@ interface request{
     uf: string,
 }
 
-const ongsRepository = new OngsRepository()
-
 class CreateOngsService{
 
     public async execute(data:request):Promise<Ong>{
 
         const ongsRepository = new OngsRepository();
 
-        const ong = ongsRepository.create(data);
+        const ong = await ongsRepository.create(data);
 
         return ong;
         
