@@ -19,8 +19,7 @@ class CreateOngsService{
 
         return ong;
         
-        
-    }
+    };
 
 }
 
