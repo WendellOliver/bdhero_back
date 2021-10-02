@@ -12,11 +12,26 @@ class OngsRepository implements IOngsRepository {
         this.ormRepository = getRepository(Ong);
     }
 
-    async create(dataOngs: ICreateOngDTO): Promise<Ong> {
+    async createOng(dataOngs: ICreateOngDTO): Promise<Ong> {
+
         const ong = this.ormRepository.create(dataOngs);
+
         await this.ormRepository.save(ong);
+
         return ong;
     }
+
+    async findOneByEmail(emailData:string): Promise<Ong | undefined> {
+
+        const ongs = await this.ormRepository.findOne({
+            where: {
+                email: emailData,
+            },
+        });
+
+        return ongs;
+    }
+
 
 }
 

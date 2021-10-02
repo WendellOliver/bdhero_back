@@ -27,10 +27,6 @@ class Ong{
     @UpdateDateColumn()
         updated_at: Date;
 
-    
-    
-
 }
 
-
-export default Ong;
+export default Ong

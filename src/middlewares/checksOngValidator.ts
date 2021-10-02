@@ -4,7 +4,7 @@ const requestSchema = Yup.object({
 
     name: Yup.string().required(),
     email: Yup.string().required().email(),
-    whatsapp: Yup.string().required(),
+    whatsapp: Yup.string().required().length(10),
     city: Yup.string().required(),
     uf: Yup.string().required()
 

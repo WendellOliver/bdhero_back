@@ -15,7 +15,13 @@ class CreateOngsService{
 
         const ongsRepository = new OngsRepository();
 
-        const ong = await ongsRepository.create(data);
+        const ongFinded = await ongsRepository.findOneByEmail(data.email);
+
+        if(ongFinded){
+            return ongFinded;
+        }
+
+        const ong = await ongsRepository.createOng(data);
 
         return ong;
         

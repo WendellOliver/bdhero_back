@@ -24,7 +24,7 @@ export class CreateIncidents1631716414291 implements MigrationInterface {
                     },
                     {
                         name:'inc_value',
-                        type:'double',
+                        type:'varchar',
                         isNullable:false
                     }
                 ]
