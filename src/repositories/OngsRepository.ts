@@ -5,10 +5,10 @@ import IOngsRepository from "./interface/IOngsRepository";
 
 class OngsRepository implements IOngsRepository {
 
-    private ormRepository:Repository<Ong>
+    private ormRepository: Repository<Ong>
 
 
-    constructor(){
+    constructor() {
         this.ormRepository = getRepository(Ong);
     }
 
@@ -21,7 +21,7 @@ class OngsRepository implements IOngsRepository {
         return ong;
     }
 
-    async findOneByEmail(emailData:string): Promise<Ong | undefined> {
+    async findOneByEmail(emailData: string): Promise<Ong | undefined> {
 
         const ongs = await this.ormRepository.findOne({
             where: {
@@ -30,6 +30,14 @@ class OngsRepository implements IOngsRepository {
         });
 
         return ongs;
+    }
+
+    async FindOneById(id: string): Promise<Ong | undefined> {
+
+        const ong = await this.ormRepository.findOne(id);
+
+        return ong;
+
     }
 
 
