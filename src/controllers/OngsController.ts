@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import CreateOngsService from "../services/CreateOngsService";
-import FindOngByIdService from "../services/FindOneByEmailService";
+import FindOngByIdService from "../services/FindOngByIdService";
 
 export default class OngsController {
 
@@ -10,9 +10,9 @@ export default class OngsController {
 
         const createOngsService = new CreateOngsService();
 
-        const ongs = createOngsService.execute({ name, email, whatsapp, city, uf });
+        const ong = await createOngsService.execute({ name, email, whatsapp, city, uf });
 
-        return response.status(201).json(ongs);
+        return response.status(201).json({ ong });
     }
 
     public async findById(request: Request, response: Response) {
