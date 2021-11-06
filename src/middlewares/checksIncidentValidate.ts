@@ -1,14 +1,14 @@
 import { Request, Response, NextFunction } from "express";
 import { ObjectShape, OptionalObjectSchema } from "yup/lib/object";
 
-const checksOngValidate =
+const checksIncidentValidate =
     (requestSchema: OptionalObjectSchema<ObjectShape>) =>
         async (request: Request, response: Response, next: NextFunction) => {
-            const { name, email, whatsapp, city, uf } = request.body;
+            const { inc_title, inc_desc, inc_value } = request.body;
 
             try {
                 await requestSchema.validate({
-                    name, email, whatsapp, city, uf
+                    inc_title, inc_desc, inc_value
 
                 });
                 return next();
@@ -17,4 +17,4 @@ const checksOngValidate =
             }
         }
 
-export default checksOngValidate;
+export default checksIncidentValidate;

@@ -40,7 +40,6 @@ class OngsRepository implements IOngsRepository {
 
     }
 
-
 }
 
 export default OngsRepository;
