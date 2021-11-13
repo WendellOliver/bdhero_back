@@ -16,13 +16,13 @@ class Incidents {
     ong: Ong;
 
     @Column()
-    inc_title: string;
+    title: string;
 
     @Column()
-    inc_desc: string;
+    description: string;
 
     @Column()
-    inc_value: string;
+    value: string;
 
     @Column()
     created_at: Date;

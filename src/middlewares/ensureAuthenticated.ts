@@ -17,18 +17,18 @@ export default async function ensureAuthenticated(
     const authOng = request.headers.authorization;
 
     if (!authOng) {
-        throw new Error("Invalid Token");
+        throw new Error("Invalid Token 1");
     }
 
 
-    const [, token] = authOng.split('');
+    const [, token] = authOng.split(' ');
 
     try {
 
         const decoded = verify(token, authConfig.jwt.secret);
 
         if (!decoded) {
-            throw new Error("token invalid");
+            throw new Error("token invalid 2");
         }
 
         const { sub } = decoded as ITokenPayload;
@@ -38,11 +38,16 @@ export default async function ensureAuthenticated(
         const ong = await ongsRepository.FindOneById(sub);
 
         if (!ong) {
-            throw new Error("token invalid")
+            throw new Error("token invalid 3")
         }
 
+        request.ong = {
+            ongId: ong.id
+        }
+
+        return next();
 
     } catch {
-        throw new Error("Invalid Token")
+        throw new Error("Invalid Token 4")
     }
 }

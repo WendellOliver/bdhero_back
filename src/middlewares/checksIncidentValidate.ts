@@ -4,11 +4,11 @@ import { ObjectShape, OptionalObjectSchema } from "yup/lib/object";
 const checksIncidentValidate =
     (requestSchema: OptionalObjectSchema<ObjectShape>) =>
         async (request: Request, response: Response, next: NextFunction) => {
-            const { inc_title, inc_desc, inc_value } = request.body;
+            const { title, description, value } = request.body;
 
             try {
                 await requestSchema.validate({
-                    inc_title, inc_desc, inc_value
+                    title, description, value
 
                 });
                 return next();

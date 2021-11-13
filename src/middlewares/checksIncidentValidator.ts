@@ -2,9 +2,9 @@ import * as Yup from "yup";
 
 const requestSchema = Yup.object({
 
-    inc_title: Yup.string().required(),
-    inc_desc: Yup.string().required(),
-    inc_value: Yup.string().required(),
+    title: Yup.string().required(),
+    description: Yup.string().required(),
+    value: Yup.number().required(),
 
 });
 

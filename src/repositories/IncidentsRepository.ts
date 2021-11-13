@@ -5,19 +5,19 @@ import IIncidentsRepository from "./interface/IIncidentsRepository";
 
 class IncidentsRepository implements IIncidentsRepository {
 
-    private ormRepository:Repository<Incidents>
+    private ormRepository: Repository<Incidents>
 
 
-    constructor(){
+    constructor() {
         this.ormRepository = getRepository(Incidents);
     }
 
     async createIncidents(dataIncidents: ICreateIncidentDTO): Promise<Incidents> {
 
-        const incident = this.ormRepository.create(dataIncidents);
-    
-        await this.ormRepository.save(incident);
-    
+        const incidents = this.ormRepository.create(dataIncidents);
+
+        const incident = await this.ormRepository.save(incidents);
+
         return incident;
     }
 

@@ -8,22 +8,29 @@ export class CreateIncidents1631716414291 implements MigrationInterface {
                 name: 'incidents',
                 columns: [
                     {
+                        name: 'id',
+                        type: 'uuid',
+                        isPrimary: true,
+                        generationStrategy: 'uuid',
+                        default: 'uuid_generate_v4()',
+                    },
+                    {
                         name: 'ong_id',
                         type: 'uuid',
                         isNullable: false
                     },
                     {
-                        name: 'inc_title',
+                        name: 'title',
                         type: 'varchar',
                         isNullable: false
                     },
                     {
-                        name: 'inc_desc',
+                        name: 'description',
                         type: 'varchar',
                         isNullable: false
                     },
                     {
-                        name: 'inc_value',
+                        name: 'value',
                         type: 'varchar',
                         isNullable: false
                     },
