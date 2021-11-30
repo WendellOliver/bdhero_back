@@ -21,8 +21,20 @@ class IncidentsRepository implements IIncidentsRepository {
         return incident;
     }
 
+    async findByOngId(ong_id: string): Promise<Incidents[]> {
 
+        const incidents = await this.ormRepository.find({
+            where: {
+                ong_id
+            }
+        })
 
+        return incidents
+    }
+
+    async deleteIncidentsById(id: string): Promise<void> {
+        await this.ormRepository.delete(id);
+    }
 
 }
 

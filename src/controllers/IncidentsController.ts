@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import CreateIncidentsService from "../services/CreateIncidentsService";
+import DeleteIncidentsService from "../services/DeleteIncidentsService";
+import FindIncidentsService from "../services/FindIncidentsService";
 
 export default class IncidentsController {
 
@@ -14,5 +16,29 @@ export default class IncidentsController {
         return response.status(201).json({ incident })
 
     };
+
+    public async find(request: Request, response: Response) {
+
+        const { ongId } = request.ong;
+
+        const findIncidentsService = new FindIncidentsService();
+
+        const incidents = await findIncidentsService.execute(ongId);
+
+        return response.status(200).json({ incidents });
+
+    }
+
+    public async delete(request: Request, response: Response) {
+
+        const { id } = request.params;
+
+        const deleteIncidentsService = new DeleteIncidentsService();
+
+        deleteIncidentsService.execute(id);
+
+        return response.status(204).json({ message: "Deletado com Sucesso!" });
+
+    }
 
 };

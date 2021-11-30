@@ -10,5 +10,7 @@ const incidentsController = new IncidentsController();
 incidentsRouter.use(ensureAuthenticated)
 
 incidentsRouter.post('/', checksIncidentValidate(requestSchema), incidentsController.create);
+incidentsRouter.get('/', incidentsController.find);
+incidentsRouter.delete('/:id', incidentsController.delete)
 
 export default incidentsRouter;
